@@ -1,5 +1,5 @@
 /*
-Package basics implements some of the things taught in the "Basics" section of "A Tour of Go";
+Package basics implements some of the things taught in the "Basics" section of "A Tour of Go".
 
   Declaring variables, calling functions, and all that jazz.
 
@@ -23,8 +23,8 @@ Package basics implements some of the things taught in the "Basics" section of "
 */
 package basics
 
-// Add returns the sum of all its arguments.
-func Add(nums ...int) (sum int) {
+// Sum returns the sum of all its arguments.
+func Sum(nums ...int) (sum int) {
 	for _, num := range nums {
 		sum += num
 	}

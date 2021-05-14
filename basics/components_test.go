@@ -2,7 +2,7 @@ package basics
 
 import "testing"
 
-func TestAdd(t *testing.T) {
+func TestSum(t *testing.T) {
 	cases := []struct {
 		in   []int
 		want int
@@ -14,9 +14,9 @@ func TestAdd(t *testing.T) {
 		{[]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}, 120},
 	}
 	for _, c := range cases {
-		got := Add(c.in...)
+		got := Sum(c.in...)
 		if got != c.want {
-			t.Errorf("Add(%v) got %v instead of %v", c.in, got, c.want)
+			t.Errorf("Sum(%v) got %v instead of %v", c.in, got, c.want)
 		}
 	}
 }
