@@ -21,6 +21,26 @@ func TestSum(t *testing.T) {
 	}
 }
 
+func TestConvertBase(t *testing.T) {
+	cases := []struct {
+		base int
+		num  int
+		want int
+	}{
+		{2, 6, 110},
+		{2, 23, 10111},
+		{8, 4, 4},
+		{8, 15, 17},
+		{10, 188, 188},
+	}
+	for _, c := range cases {
+		got := ConvertBase(c.base, c.num)
+		if got != c.want {
+			t.Errorf("ConvertBase(%v, %v) got %v instead of %v", c.base, c.num, got, c.want)
+		}
+	}
+}
+
 func TestDivide(t *testing.T) {
 	cases := []struct {
 		in   []int

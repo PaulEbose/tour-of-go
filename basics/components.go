@@ -23,12 +23,39 @@ Package basics implements some of the things taught in the "Basics" section of "
 */
 package basics
 
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
+
 // Sum returns the sum of all its arguments.
 func Sum(nums ...int) (sum int) {
 	for _, num := range nums {
 		sum += num
 	}
 	return
+}
+
+// ConvertBase returns the value in the given base.
+func ConvertBase(base int, num int) int {
+	var resultInString string
+
+	for num >= base {
+		// prepend before mutating num
+		resultInString = fmt.Sprint(num%base) + resultInString
+		num = num / base
+	}
+
+	// insert the left over number
+	resultInString = fmt.Sprint(num%base) + resultInString
+
+	result, err := strconv.Atoi(resultInString)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	return result
 }
 
 // Divide returns the division of all its arguments from left to right.
