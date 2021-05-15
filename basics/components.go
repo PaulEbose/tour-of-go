@@ -31,6 +31,15 @@ func Sum(nums ...int) (sum int) {
 	return
 }
 
+// Divide returns the division of all its arguments from left to right.
+func Divide(nums ...int) (total float64) {
+	total = float64(nums[0])
+	for i := 1; i < len(nums); i++ {
+		total /= float64(nums[i])
+	}
+	return
+}
+
 /**
 OBJECTIVES :
 	- use multiple results (return values)
