@@ -29,7 +29,7 @@ import (
 )
 
 // Sum returns the sum of all its arguments.
-func Sum(nums ...int) (sum int) {
+func Sum(nums ...float64) (sum float64) {
 	for _, num := range nums {
 		sum += num
 	}
@@ -75,10 +75,10 @@ func ConvertBase(base int, nums ...int) (result []string) {
 }
 
 // Divide returns the division of all its arguments from left to right.
-func Divide(nums ...int) (total float64) {
-	total = float64(nums[0])
+func Divide(nums ...float64) (total float64) {
+	total = nums[0]
 	for i := 1; i < len(nums); i++ {
-		total /= float64(nums[i])
+		total /= nums[i]
 	}
 	return
 }
