@@ -26,7 +26,6 @@ package basics
 import (
 	"fmt"
 	"log"
-	"strconv"
 )
 
 // Sum returns the sum of all its arguments.
@@ -37,25 +36,36 @@ func Sum(nums ...int) (sum int) {
 	return
 }
 
-// ConvertBase returns the value in the given base.
-func ConvertBase(base int, num int) int {
-	var resultInString string
+// ConvertBase returns a value in the given base.
+func ConvertBase(base int, num int) (result string) {
+	if base < 2 || base > 16 {
+		log.Fatalln("Omo! base '" + fmt.Sprint(base) + "' is not supported. \n Only bases 2 to 16 is supported.")
+	}
 
 	for num >= base {
 		// prepend before mutating num
-		resultInString = fmt.Sprint(num%base) + resultInString
+		result = fmt.Sprint(num%base) + result
 		num = num / base
 	}
 
-	// insert the left over number
-	resultInString = fmt.Sprint(num%base) + resultInString
-
-	result, err := strconv.Atoi(resultInString)
-	if err != nil {
-		log.Fatalln(err)
+	switch num % base {
+	case 10:
+		result = "A" + result
+	case 11:
+		result = "B" + result
+	case 12:
+		result = "C" + result
+	case 13:
+		result = "D" + result
+	case 14:
+		result = "E" + result
+	case 15:
+		result = "F" + result
+	default:
+		result = fmt.Sprint(num%base) + result
 	}
 
-	return result
+	return
 }
 
 // Divide returns the division of all its arguments from left to right.
