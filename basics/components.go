@@ -37,32 +37,38 @@ func Sum(nums ...int) (sum int) {
 }
 
 // ConvertBase returns a value in the given base.
-func ConvertBase(base int, num int) (result string) {
+func ConvertBase(base int, nums ...int) (result []string) {
 	if base < 2 || base > 16 {
 		log.Fatalln("Omo! base '" + fmt.Sprint(base) + "' is not supported. \n Only bases 2 to 16 is supported.")
 	}
 
-	for num >= base {
-		// prepend before mutating num
-		result = fmt.Sprint(num%base) + result
-		num = num / base
-	}
+	for _, num := range nums {
+		var currentValue string
 
-	switch num % base {
-	case 10:
-		result = "A" + result
-	case 11:
-		result = "B" + result
-	case 12:
-		result = "C" + result
-	case 13:
-		result = "D" + result
-	case 14:
-		result = "E" + result
-	case 15:
-		result = "F" + result
-	default:
-		result = fmt.Sprint(num%base) + result
+		for num >= base {
+			// prepend before mutating num
+			currentValue = fmt.Sprint(num%base) + currentValue
+			num = num / base
+		}
+
+		switch num % base {
+		case 10:
+			currentValue = "A" + currentValue
+		case 11:
+			currentValue = "B" + currentValue
+		case 12:
+			currentValue = "C" + currentValue
+		case 13:
+			currentValue = "D" + currentValue
+		case 14:
+			currentValue = "E" + currentValue
+		case 15:
+			currentValue = "F" + currentValue
+		default:
+			currentValue = fmt.Sprint(num%base) + currentValue
+		}
+
+		result = append(result, currentValue)
 	}
 
 	return
