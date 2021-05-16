@@ -26,12 +26,39 @@ package basics
 import (
 	"fmt"
 	"log"
+	"math"
 )
 
 // Sum returns the sum of all its arguments.
 func Sum(nums ...float64) (sum float64) {
 	for _, num := range nums {
 		sum += num
+	}
+	return
+}
+
+// Multiply returns the multiplication of all its arguments.
+func Multiply(nums ...float64) (total float64) {
+	total = nums[0]
+	for i := 1; i < len(nums); i++ {
+		total *= nums[i]
+	}
+	return
+}
+
+// Subtract returns the subtraction of all its arguments from left to right.
+func Subtract(nums ...float64) (total float64) {
+	total = nums[0]
+	for i := 1; i < len(nums); i++ {
+		total -= nums[i]
+	}
+	return
+}
+
+// Sqrt returns the Sqrt of all its arguments.
+func Sqrt(nums ...float64) (total []float64) {
+	for _, num := range nums {
+		total = append(total, math.Sqrt(num))
 	}
 	return
 }

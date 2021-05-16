@@ -22,6 +22,68 @@ func TestSum(t *testing.T) {
 	}
 }
 
+func TestMultiply(t *testing.T) {
+	cases := []struct {
+		in   []float64
+		want float64
+	}{
+		{[]float64{1, 2, 3, 4, 5}, 120},
+		{[]float64{1, 2, 3, 4, 5, 6, 7, 8}, 40320},
+		{[]float64{1.45, 2.230, -3, -10}, 97.005},
+		{[]float64{42.72, 12, 48}, 24606.72},
+		{[]float64{8, 9, 14, 15}, 15120},
+	}
+
+	for _, c := range cases {
+		got := Multiply(c.in...)
+		if got != c.want {
+			t.Errorf("Multiply(%v) got %v instead of %v", c.in, got, c.want)
+		}
+	}
+}
+
+func TestSubtract(t *testing.T) {
+	cases := []struct {
+		in   []float64
+		want float64
+	}{
+		{[]float64{1, 2, 3, 4, 5}, -13},
+		{[]float64{12, 8, 2}, 2},
+		{[]float64{5, 1, 2, 2}, 0},
+		{[]float64{9, 4, 7}, -2},
+		{[]float64{45861, 546, 888, 10101}, 34326},
+	}
+
+	for _, c := range cases {
+		got := Subtract(c.in...)
+		if got != c.want {
+			t.Errorf("Subtract(%v) got %v instead of %v", c.in, got, c.want)
+		}
+	}
+}
+
+func TestSqrt(t *testing.T) {
+	cases := []struct {
+		in   []float64
+		want []float64
+	}{
+		{[]float64{1, 4, 9, 16, 25}, []float64{1, 2, 3, 4, 5}},
+		{[]float64{27.5625, 11.9716, 144}, []float64{5.25, 3.46, 12}},
+		{[]float64{81, 64, 225}, []float64{9, 8, 15}},
+		{[]float64{121, 36}, []float64{11, 6}},
+		{[]float64{100, 5625, 1089, 1702.3876, 256, 8317.44}, []float64{10, 75, 33, 41.26, 16, 91.2}},
+	}
+
+	for _, c := range cases {
+		got := Sqrt(c.in...)
+		for i := 0; i < len(c.want); i++ {
+			if got[i] != c.want[i] {
+				t.Errorf("Sqrt(%v) got %v instead of %v", c.in, got, c.want)
+			}
+		}
+	}
+}
+
 func TestConvertBase(t *testing.T) {
 	cases := []struct {
 		base int
