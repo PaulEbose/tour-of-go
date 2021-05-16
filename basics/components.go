@@ -9,8 +9,6 @@ Package basics implements some of the things taught in the "Basics" section of "
 		b8   - convert to octal
 		b16  - convert to hexadecimal
 		div  - arithmetic division
-		exp  - raise to the power of
-		mod  - arithmetic modulus
 		mul  - arithmetic multiplication
 		sub  - arithmetic subtraction
 		sqrt - square root of
@@ -29,10 +27,11 @@ import (
 	"math"
 )
 
-// Sum returns the sum of all its arguments.
-func Sum(nums ...float64) (sum float64) {
-	for _, num := range nums {
-		sum += num
+// Divide returns the division of all its arguments from left to right.
+func Divide(nums ...float64) (total float64) {
+	total = nums[0]
+	for i := 1; i < len(nums); i++ {
+		total /= nums[i]
 	}
 	return
 }
@@ -51,6 +50,14 @@ func Subtract(nums ...float64) (total float64) {
 	total = nums[0]
 	for i := 1; i < len(nums); i++ {
 		total -= nums[i]
+	}
+	return
+}
+
+// Sum returns the sum of all its arguments.
+func Sum(nums ...float64) (sum float64) {
+	for _, num := range nums {
+		sum += num
 	}
 	return
 }
@@ -98,15 +105,6 @@ func ConvertBase(base int, nums ...int) (result []string) {
 		result = append(result, currentValue)
 	}
 
-	return
-}
-
-// Divide returns the division of all its arguments from left to right.
-func Divide(nums ...float64) (total float64) {
-	total = nums[0]
-	for i := 1; i < len(nums); i++ {
-		total /= nums[i]
-	}
 	return
 }
 
