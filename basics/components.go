@@ -24,7 +24,6 @@ package basics
 import (
 	"fmt"
 	"log"
-	"math"
 )
 
 // Divide returns the division of all its arguments from left to right.
@@ -65,7 +64,13 @@ func Sum(nums ...float64) (sum float64) {
 // Sqrt returns the Sqrt of all its arguments.
 func Sqrt(nums ...float64) (total []float64) {
 	for _, num := range nums {
-		total = append(total, math.Sqrt(num))
+		sqrt := 1.0
+
+		for range [12]int{} {
+			sqrt -= (sqrt*sqrt - num) / (2 * sqrt)
+		}
+
+		total = append(total, sqrt)
 	}
 	return
 }
