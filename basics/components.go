@@ -17,7 +17,6 @@ Package basics implements some of the things taught in the "Basics" section of "
 		$ tog add 30 80 45
 		$ tog sqrt 36 81 48
 		$ tog b2 30
-		$ tog b16 30*14
 */
 package basics
 
