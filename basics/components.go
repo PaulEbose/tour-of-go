@@ -61,15 +61,25 @@ func Sum(nums ...float64) (sum float64) {
 }
 
 // Sqrt returns the Sqrt of all its arguments.
-func Sqrt(nums ...float64) (total []float64) {
+func Sqrt(nums ...float64) (total []string) {
 	for _, num := range nums {
-		sqrt := 1.0
 
+		var lowerThanZero bool
+		if num < 0 {
+			lowerThanZero = true
+			num = -num
+		}
+
+		sqrt := 1.0
 		for range [12]int{} {
 			sqrt -= (sqrt*sqrt - num) / (2 * sqrt)
 		}
 
-		total = append(total, sqrt)
+		if lowerThanZero {
+			total = append(total, fmt.Sprint(sqrt)+"i")
+		} else {
+			total = append(total, fmt.Sprint(sqrt))
+		}
 	}
 	return
 }
