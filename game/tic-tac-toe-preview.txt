@@ -1,0 +1,122 @@
+
+$ tog game
+ loading...
+ 
+ 		-------------
+		 TIC TAC TOE 
+		-------------
+  details (d), rematch (r), end (e), help (h)  
+ 
+ enter player1 name: kip
+ player `kip` created!
+ enter player2 name: 
+ player `player2` created!
+ 
+    | 1 | 2 | 3
+  --------------
+  a |___|___|___
+  b |___|___|___
+  c |___|___|___
+
+ select a tile to play [kip]: da
+ 
+ invalid selection!
+    | 1 | 2 | 3
+  --------------
+  a |___|___|___
+  b |___|___|___
+  c |___|___|___
+  
+ select a tile to play [kip]: a1
+ 
+ `kip` played "X" in position A1
+    | 1 | 2 | 3
+  --------------
+  a | X |___|___
+  b |___|___|___
+  c |___|___|___
+  
+  select a tile to play [player2]: a1
+  
+  position A1 is not empty!
+    | 1 | 2 | 3
+  --------------
+  a | X	|___|___
+  b |___|___|___
+  c |___|___|___
+  
+  select a tile to play [player2]: b3
+  
+ `player2` played "O" in position B3
+    | 1 | 2 | 3
+  --------------
+  a | X |___|___
+  b |___|___| O 
+  c |___|___|___
+  
+  ......
+  
+  `kip` played "X" in position B1
+    | 1 | 2 | 3
+  --------------
+  a | X | X | O 
+  b | X | O | O 
+  c |___|___| X 
+  
+  select a tile to play [player2]: c1
+    
+  `player2` played "O" in position C1
+    | 1 | 2 | 3
+  --------------
+  a | X | X | O 
+  b | X | O | O 
+  c | O |___| X 
+  
+  ++--++--++--++--++--++
+   * CONGRATULATIONS *
+  ++--++--++--++--++--++
+  
+    player2 wins!!!
+  
+    | 1 | 2 | 3
+  --------------
+  a | X | X |*O* 
+  b | X |*O*| O 
+  c |*O*|___| X 
+  
+  details (d), rematch (r), end (e), help (h): d
+  
+  kip(X) vs. player2(O)
+  winner: player2
+  total turns: 8 
+  empty positions: [C2]
+  moves: [kip A1] -> [player2 B3] -> [kip A2] -> [player2 A3] -> [kip C3] -> [player2 B2] -> [kip B1] -> [player2 C1] 
+  
+  details (d), rematch (r), end (e), help (h): r
+  
+  game restarted!
+   
+    | 1 | 2 | 3
+  --------------
+  a |___|___|___
+  b |___|___|___
+  c |___|___|___
+
+ select a tile to play [kip]: h
+ 
+ .. help message ..
+ 
+  
+    | 1 | 2 | 3
+  --------------
+  a |___|___|___
+  b |___|___|___
+  c |___|___|___
+
+ select a tile to play [kip]: e
+ 
+ game ended!
+ 
+ .. session stats ..
+ 
+$

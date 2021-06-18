@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/paulebose/tog/basics"
+	"github.com/paulebose/tog/game"
 )
 
 func main() {
@@ -26,6 +27,8 @@ func main() {
 	}
 
 	switch os.Args[1] {
+	case "game":
+		game.TicTacToe()
 	case "add":
 		fmt.Println(basics.Sum(nums...))
 	case "b2":
